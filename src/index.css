@@ -231,7 +231,7 @@ h1, h2, h3 {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: url('assets/hero-bg.png') no-repeat center center/cover;
+    background: url('/assets/hero-bg.png') no-repeat center center/cover;
     overflow: hidden;
 }
 
@@ -387,7 +387,7 @@ h1, h2, h3 {
 }
 
 .cta-card {
-    background: url('assets/hero-bg.png') no-repeat center center/cover;
+    background: url('/assets/hero-bg.png') no-repeat center center/cover;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
