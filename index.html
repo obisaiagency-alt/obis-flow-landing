@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="manifest" href="/manifest.json">
     <title>Obis Agency | Escalamos tu Firma Legal con IA y Alta Tecnología</title>
     <meta name="description" content="Especialistas en webs de alta conversión y sistemas de IA para firmas legales. Posiciona tu despacho con autoridad y captura leads cualificados de forma automática.">
     
@@ -11,27 +21,30 @@
     <meta property="og:title" content="Obis Agency | Escalamos tu Firma Legal con IA y Alta Tecnología">
     <meta property="og:description" content="Especialistas en webs de alta conversión y sistemas de IA para firmas legales. Posiciona tu despacho con autoridad y captura leads cualificados.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://obis-flow.com/">
-    <meta property="og:image" content="https://obis-flow.com/assets/og-image.jpg">
+    <meta property="og:url" content="https://obisagency.com/">
+    <meta property="og:image" content="https://obisagency.com/assets/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
     
     <!-- Hreflang Attributes -->
-    <link rel="alternate" hreflang="es" href="https://obis-flow.com/" />
-    <link rel="alternate" hreflang="ca" href="https://obis-flow.com/?lang=ca" />
-    <link rel="alternate" hreflang="en" href="https://obis-flow.com/?lang=en" />
-    <link rel="alternate" hreflang="x-default" href="https://obis-flow.com/" />
+    <link rel="alternate" hreflang="es" href="https://obisagency.com/" />
+    <link rel="alternate" hreflang="ca" href="https://obisagency.com/?lang=ca" />
+    <link rel="alternate" hreflang="en" href="https://obisagency.com/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://obisagency.com/" />
 
     <!-- Schema.org / JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LegalService",
+      "@type": "ProfessionalService",
       "name": "Obis Agency",
       "description": "Agencia especializada en escalar firmas legales con IA y tecnología de alta conversión.",
-      "url": "https://obis-flow.com",
-      "logo": "https://obis-flow.com/assets/logo.png"
+      "url": "https://obisagency.com",
+      "logo": "https://obisagency.com/assets/logo.png"
     }
     </script>
+
+    <!-- Preload Critical LCP Assets -->
+    <link rel="preload" as="image" href="/assets/hero-bg.webp">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,4 +1,45 @@
+import { useState } from 'react';
+
 export default function Contact({ t }) {
+    const [status, setStatus] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/obis.ai.agency@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                
+                // Disparar evento de conversión en Google Analytics
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'generate_lead', {
+                        'event_category': 'engagement',
+                        'event_label': 'Formulario Auditoría'
+                    });
+                }
+
+                form.reset();
+                setTimeout(() => setStatus(''), 5000); // Ocultar mensaje de éxito después de 5 seg
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
+    };
+
     return (
         <section id="contacto" className="cta-section">
             <div className="container">
@@ -6,7 +47,7 @@ export default function Contact({ t }) {
                     <div className="cta-content">
                         <h2>{t('cta_title')}</h2>
                         <p>{t('cta_desc')}</p>
-                        <form action="https://formsubmit.co/obis.ai.agency@gmail.com" method="POST" className="cta-form">
+                        <form onSubmit={handleSubmit} className="cta-form">
                             <input type="hidden" name="_subject" value="Nuevo Contacto - Obis Agency" />
                             <input type="hidden" name="_template" value="table" />
                             
@@ -24,14 +65,19 @@ export default function Contact({ t }) {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="time">{t('form_time_label')}</label>
-                                <select name="horario" id="time" required defaultValue="">
+                                <select name="horario" id="time" defaultValue="">
                                     <option value="" disabled>{t('form_time_placeholder')}</option>
                                     <option value="morning">{t('form_time_morning')}</option>
                                     <option value="midday">{t('form_time_midday')}</option>
                                     <option value="afternoon">{t('form_time_afternoon')}</option>
                                 </select>
                             </div>
-                            <button type="submit" className="btn btn-gold full-width">{t('form_submit')}</button>
+                            <button type="submit" className="btn btn-gold full-width" disabled={status === 'loading'}>
+                                {status === 'loading' ? t('form_sending') : t('form_submit')}
+                            </button>
+                            
+                            {status === 'success' && <div className="form-message success fade-in">{t('form_success')}</div>}
+                            {status === 'error' && <div className="form-message error fade-in">{t('form_error')}</div>}
                         </form>
                     </div>
                 </div>

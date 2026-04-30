@@ -7,6 +7,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LegalModal from './components/LegalModal';
 import { useLanguage } from './hooks/useLanguage';
+import WhatsAppButton from './components/WhatsAppButton';
+import ExtraSections from './components/ExtraSections';
 import './index.css';
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
                 <Hero t={t} />
                 <PainSection t={t} />
                 <Solutions t={t} />
+                <ExtraSections t={t} />
                 <Contact t={t} />
             </main>
             <Footer t={t} openModal={openModal} />
@@ -46,6 +49,8 @@ function App() {
                 title={modalConfig.type ? t(`legal_${modalConfig.type}_title`) : ''}
                 content={modalConfig.type ? t(`legal_${modalConfig.type}_text`) : ''}
             />
+            
+            <WhatsAppButton />
         </>
     );
 }

@@ -1,0 +1,17 @@
+{
+  "short_name": "Obis Agency",
+  "name": "Obis Agency | IA para Firmas Legales",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0a192f",
+  "theme_color": "#c5a059",
+  "display": "standalone",
+  "scope": "/",
+  "description": "Especialistas en webs de alta conversión y sistemas de IA para firmas legales."
+}
