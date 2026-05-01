@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { CheckCircle, ShieldAlert, Scale, Users, DollarSign, HelpCircle } from 'lucide-react';
+import { CheckCircle, ShieldAlert, Scale, Users, DollarSign, HelpCircle, Search, Cpu, Workflow, FileText, ShieldCheck, Lock, UserCheck } from 'lucide-react';
 
-export default function ExtraSections({ t }) {
+export default function ExtraSections({ t, onSelectService }) {
     const [activeFaq, setActiveFaq] = useState(null);
 
     const toggleFaq = (idx) => {
@@ -11,12 +11,38 @@ export default function ExtraSections({ t }) {
     const faqs = [
         { q: 'faq_1_q', a: 'faq_1_a' },
         { q: 'faq_2_q', a: 'faq_2_a' },
-        { q: 'faq_3_q', a: 'faq_3_a' }
+        { q: 'faq_3_q', a: 'faq_3_a' },
+        { q: 'faq_4_q', a: 'faq_4_a' },
+        { q: 'faq_5_q', a: 'faq_5_a' },
+        { q: 'faq_6_q', a: 'faq_6_a' },
+        { q: 'faq_7_q', a: 'faq_7_a' }
     ];
 
     const pricingTiers = [
-        { title: 'price_1_title', cost: 'price_1_cost', desc: 'price_1_desc' },
-        { title: 'price_2_title', cost: 'price_2_cost', desc: 'price_2_desc' }
+        { 
+            title: 'solution_1_title', 
+            cost: 'price_web', 
+            desc: 'solution_1_desc',
+            icon: <Search className="gold-text" size={32} />
+        },
+        { 
+            title: 'solution_4_title', 
+            cost: 'price_consultation', 
+            desc: 'solution_4_desc',
+            icon: <FileText className="gold-text" size={32} />
+        },
+        { 
+            title: 'solution_2_title', 
+            cost: 'price_support', 
+            desc: 'solution_2_desc',
+            icon: <Cpu className="gold-text" size={32} />
+        },
+        { 
+            title: 'solution_3_title', 
+            cost: 'price_automation', 
+            desc: 'solution_3_desc',
+            icon: <Workflow className="gold-text" size={32} />
+        }
     ];
 
     return (
@@ -50,34 +76,54 @@ export default function ExtraSections({ t }) {
                 </div>
             </section>
 
-            {/* Precios */}
-            <section id="precios" className="extra-section darker">
+            {/* Precios / Servicios Modulares */}
+            <section id="soluciones" className="extra-section darker">
                 <div className="container">
                     <h2 className="section-title text-center" dangerouslySetInnerHTML={{ __html: t('pricing_title') }}></h2>
-                    <div className="pricing-grid">
+                    <p className="text-center" style={{ color: 'var(--text-muted)', marginBottom: '50px', maxWidth: '700px', margin: '0 auto 50px' }}>
+                        Selecciona los módulos que tu despacho necesita. Ofrecemos soluciones independientes y combinables según tus objetivos.
+                    </p>
+                    <div className="pricing-grid modular">
                         {pricingTiers.map((tier, idx) => (
-                            <div className="pricing-card" key={idx}>
+                            <div className="pricing-card modular-card" key={idx}>
+                                <div className="card-icon-small">{tier.icon}</div>
                                 <h3>{t(tier.title)}</h3>
-                                <div className="price">{t(tier.cost)}</div>
-                                <p>{t(tier.desc)}</p>
+                                <div className="price-tag">{t(tier.cost)}</div>
+                                <p className="tier-desc">{t(tier.desc)}</p>
+                                <a 
+                                    href="#contacto" 
+                                    className="btn btn-outline full-width" 
+                                    style={{ marginTop: 'auto' }}
+                                    onClick={() => onSelectService(tier.title)}
+                                >
+                                    {t('hero_btn_start')}
+                                </a>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Manifiesto & Seguridad */}
+            {/* Manifiesto de IA Ética */}
             <section id="manifiesto" className="extra-section">
-                <div className="container manifesto-flex">
-                    <div className="manifesto-block">
-                        <ShieldAlert className="gold-text" size={48} />
-                        <h3>{t('manifesto_title')}</h3>
-                        <p>{t('manifesto_desc')}</p>
-                    </div>
-                    <div className="manifesto-block">
-                        <Scale className="gold-text" size={48} />
-                        <h3>{t('security_title')}</h3>
-                        <p>{t('security_desc')}</p>
+                <div className="container">
+                    <h2 className="section-title text-center" dangerouslySetInnerHTML={{ __html: t('manifesto_title') }}></h2>
+                    <div className="manifesto-grid">
+                        <div className="manifesto-block">
+                            <ShieldAlert className="gold-text" size={48} />
+                            <h3>{t('manifesto_1_title')}</h3>
+                            <p>{t('manifesto_1_desc')}</p>
+                        </div>
+                        <div className="manifesto-block">
+                            <Lock className="gold-text" size={48} />
+                            <h3>{t('manifesto_2_title')}</h3>
+                            <p>{t('manifesto_2_desc')}</p>
+                        </div>
+                        <div className="manifesto-block">
+                            <UserCheck className="gold-text" size={48} />
+                            <h3>{t('manifesto_3_title')}</h3>
+                            <p>{t('manifesto_3_desc')}</p>
+                        </div>
                     </div>
                 </div>
             </section>

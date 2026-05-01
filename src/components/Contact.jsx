@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Contact({ t }) {
+export default function Contact({ t, selectedService, setSelectedService }) {
     const [status, setStatus] = useState('');
 
     const handleSubmit = async (e) => {
@@ -62,6 +62,22 @@ export default function Contact({ t }) {
                             <div className="form-group">
                                 <label htmlFor="phone">{t('form_phone_label')}</label>
                                 <input type="tel" name="telefono" id="phone" placeholder={t('form_phone_placeholder')} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="service">{t('form_service_label')}</label>
+                                <select 
+                                    name="servicio" 
+                                    id="service" 
+                                    value={selectedService} 
+                                    onChange={(e) => setSelectedService(e.target.value)}
+                                    required
+                                >
+                                    <option value="" disabled>{t('form_service_placeholder')}</option>
+                                    <option value="solution_1_title">{t('solution_1_title')}</option>
+                                    <option value="solution_4_title">{t('solution_4_title')}</option>
+                                    <option value="solution_2_title">{t('solution_2_title')}</option>
+                                    <option value="solution_3_title">{t('solution_3_title')}</option>
+                                </select>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="time">{t('form_time_label')}</label>

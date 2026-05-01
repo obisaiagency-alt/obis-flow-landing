@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, RotateCw, RotateCcw, Cpu, ShieldCheck } from 'lucide-react';
+import { Search, RotateCw, RotateCcw, Cpu, ShieldCheck, Workflow, FileText } from 'lucide-react';
 
 function SolutionCard({ icon: Icon, title, desc }) {
     const [flipped, setFlipped] = useState(false);
@@ -39,9 +39,19 @@ export default function Solutions({ t }) {
                         desc={t('solution_2_desc')} 
                     />
                     <SolutionCard 
-                        icon={ShieldCheck} 
+                        icon={Workflow} 
                         title={t('solution_3_title')} 
                         desc={t('solution_3_desc')} 
+                    />
+                    <SolutionCard 
+                        icon={FileText} 
+                        title={t('solution_4_title')} 
+                        desc={t('solution_4_desc')} 
+                    />
+                    <SolutionCard 
+                        icon={ShieldCheck} 
+                        title={t('solution_5_title')} 
+                        desc={t('solution_5_desc')} 
                     />
                 </div>
             </div>

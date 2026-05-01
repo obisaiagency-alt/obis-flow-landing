@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import PainSection from './components/PainSection';
-import Solutions from './components/Solutions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LegalModal from './components/LegalModal';
@@ -23,6 +22,8 @@ function App() {
         }
     }, [modalConfig.isOpen]);
 
+    const [selectedService, setSelectedService] = useState('');
+
     const openModal = (type) => {
         setModalConfig({ isOpen: true, type });
     };
@@ -37,9 +38,8 @@ function App() {
             <main>
                 <Hero t={t} />
                 <PainSection t={t} />
-                <Solutions t={t} />
-                <ExtraSections t={t} />
-                <Contact t={t} />
+                <ExtraSections t={t} onSelectService={setSelectedService} />
+                <Contact t={t} selectedService={selectedService} setSelectedService={setSelectedService} />
             </main>
             <Footer t={t} openModal={openModal} />
             

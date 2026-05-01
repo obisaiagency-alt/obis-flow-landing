@@ -26,8 +26,10 @@ export default function Header({ lang, setLang, t }) {
                 </a>
                 
                 <nav className={`desktop-nav ${mobileMenuOpen ? 'active' : ''}`}>
-                    <a href="#soluciones" onClick={closeMobileMenu}>{t('nav_solutions')}</a>
                     <a href="#beneficios" onClick={closeMobileMenu}>{t('nav_benefits')}</a>
+                    <a href="#metodologia" onClick={closeMobileMenu}>{t('nav_methodology')}</a>
+                    <a href="#precios" onClick={closeMobileMenu}>{t('nav_pricing')}</a>
+                    <a href="#faq" onClick={closeMobileMenu}>{t('nav_faq')}</a>
                     <a href="#contacto" className="btn btn-header" onClick={closeMobileMenu}>{t('nav_cta')}</a>
                 </nav>
                 
