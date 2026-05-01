@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Scale, Menu } from 'lucide-react';
+import { Scale, Menu, X } from 'lucide-react';
 
 export default function Header({ lang, setLang, t }) {
     const [scrolled, setScrolled] = useState(false);
@@ -31,16 +31,16 @@ export default function Header({ lang, setLang, t }) {
                     <a href="#soluciones" onClick={closeMobileMenu}>{t('nav_pricing')}</a>
                     <a href="#faq" onClick={closeMobileMenu}>{t('nav_faq')}</a>
                     <a href="#contacto" className="btn btn-header" onClick={closeMobileMenu}>{t('nav_cta')}</a>
+                    
+                    <div className="lang-switcher">
+                        <button className={`lang-btn ${lang === 'ca' ? 'active' : ''}`} onClick={() => setLang('ca')}>CA</button>
+                        <button className={`lang-btn ${lang === 'es' ? 'active' : ''}`} onClick={() => setLang('es')}>ES</button>
+                        <button className={`lang-btn ${lang === 'en' ? 'active' : ''}`} onClick={() => setLang('en')}>EN</button>
+                    </div>
                 </nav>
                 
-                <div className="lang-switcher">
-                    <button className={`lang-btn ${lang === 'ca' ? 'active' : ''}`} onClick={() => setLang('ca')}>CA</button>
-                    <button className={`lang-btn ${lang === 'es' ? 'active' : ''}`} onClick={() => setLang('es')}>ES</button>
-                    <button className={`lang-btn ${lang === 'en' ? 'active' : ''}`} onClick={() => setLang('en')}>EN</button>
-                </div>
-                
                 <button className="mobile-menu-btn" aria-label="Menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                    <Menu />
+                    {mobileMenuOpen ? <X /> : <Menu />}
                 </button>
             </div>
         </header>
