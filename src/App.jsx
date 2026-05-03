@@ -9,10 +9,13 @@ import { useLanguage } from './hooks/useLanguage';
 import WhatsAppButton from './components/WhatsAppButton';
 import ExtraSections from './components/ExtraSections';
 import './index.css';
+import { useReveal } from './hooks/useReveal';
 
 function App() {
     const { lang, setLang, t } = useLanguage();
     const [modalConfig, setModalConfig] = useState({ isOpen: false, type: null });
+
+    useReveal();
 
     useEffect(() => {
         if (modalConfig.isOpen) {
@@ -37,9 +40,15 @@ function App() {
             <Header lang={lang} setLang={setLang} t={t} />
             <main>
                 <Hero t={t} />
-                <PainSection t={t} />
-                <ExtraSections t={t} onSelectService={setSelectedService} />
-                <Contact t={t} selectedService={selectedService} setSelectedService={setSelectedService} />
+                <div className="reveal">
+                    <PainSection t={t} />
+                </div>
+                <div className="reveal">
+                    <ExtraSections t={t} onSelectService={setSelectedService} />
+                </div>
+                <div className="reveal">
+                    <Contact t={t} selectedService={selectedService} setSelectedService={setSelectedService} />
+                </div>
             </main>
             <Footer t={t} openModal={openModal} />
             

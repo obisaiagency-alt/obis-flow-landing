@@ -14,7 +14,8 @@ export default function PainSection({ t }) {
                             <li><AlertCircle /> <span>{t('pain_feature_3')}</span></li>
                         </ul>
                     </div>
-                    <div className="pain-image-placeholder">
+                    <div className="pain-image-container">
+                        <img src="assets/pain-section.png" alt="Legal AI Efficiency" className="pain-img" />
                         <div className="stats-card">
                             <span className="gold-text big-number">75%</span>
                             <p>{t('stat_desc')}</p>
