@@ -49,7 +49,7 @@ body {
 }
 
 section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 100px;
 }
 
 h1, h2, h3 {
@@ -151,16 +151,18 @@ h1, h2, h3 {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 10000 !important; /* Higher z-index */
     padding: 20px 0;
     transition: var(--transition);
+    background: #0a192f !important; /* Solid background by default */
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
 }
 
 .main-header.scrolled {
-    background: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    background: #060d1a !important; /* Even darker when scrolled */
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8) !important;
 }
 
 .main-header .container {
@@ -184,16 +186,21 @@ h1, h2, h3 {
     opacity: 0.8;
 }
 
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .desktop-nav a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 10px;
     font-size: 14px;
     padding: 10px 15px;
     border-radius: var(--border-radius);
     font-weight: 400;
     transition: var(--transition);
-    display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping inside links */
 }
 
 .desktop-nav a:not(.btn):hover {
@@ -214,9 +221,11 @@ h1, h2, h3 {
 /* Language Switcher */
 .lang-switcher {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lang-btn {
@@ -232,6 +241,7 @@ h1, h2, h3 {
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .lang-btn:hover {
