@@ -1,4 +1,5 @@
 import { AlertCircle } from 'lucide-react';
+import painSectionImg from '../assets/pain-section.png';
 
 export default function PainSection({ t }) {
     return (
@@ -15,7 +16,7 @@ export default function PainSection({ t }) {
                         </ul>
                     </div>
                     <div className="pain-image-container">
-                        <img src="assets/pain-section.png" alt="Legal AI Efficiency" className="pain-img" />
+                        <img src={painSectionImg} alt="Legal AI Efficiency" className="pain-img" />
                         <div className="stats-card">
                             <span className="gold-text big-number">75%</span>
                             <p>{t('stat_desc')}</p>
