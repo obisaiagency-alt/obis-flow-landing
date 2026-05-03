@@ -169,12 +169,14 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -221,7 +223,7 @@ h1, h2, h3 {
     color: var(--white);
     cursor: pointer;
     position: relative;
-    z-index: 1002; /* Above desktop-nav active */
+    z-index: 10001; /* Always above the nav overlay */
 }
 
 /* Language Switcher */
@@ -268,12 +270,13 @@ h1, h2, h3 {
         width: auto;
         justify-content: center;
         gap: 2px;
+        flex-shrink: 0;
     }
     .lang-btn {
-        padding: 6px 8px;
+        padding: 5px 7px;
         font-size: 10px;
-        min-width: 32px;
-        min-height: 32px;
+        min-width: 30px;
+        min-height: 30px;
     }
 }
 
@@ -300,12 +303,16 @@ h1, h2, h3 {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    width: 100%;
 }
 
 .hero h1 {
     font-size: clamp(32px, 8vw, 72px);
     line-height: 1.2;
     margin-bottom: 24px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .hero .subtitle {
@@ -313,6 +320,7 @@ h1, h2, h3 {
     color: var(--text-muted);
     margin-bottom: 40px;
     max-width: 600px;
+    overflow-wrap: break-word;
 }
 
 .hero-actions {
@@ -614,15 +622,32 @@ h1, h2, h3 {
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 30px;
 }
 
 .footer-info p { color: var(--text-muted); font-size: 14px; margin-top: 10px; }
 
-.footer-links { text-align: right; }
+.footer-links { text-align: right; flex-shrink: 0; }
 .footer-links p { color: var(--text-muted); font-size: 14px; }
 .legal-links { margin-top: 10px; }
 .legal-links a { color: var(--gold); text-decoration: none; font-size: 14px; margin-left: 20px; }
+
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .footer-links {
+        text-align: left;
+        width: 100%;
+    }
+    .legal-links a {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
 
 
 @media (max-width: 992px) {
@@ -662,8 +687,9 @@ h1, h2, h3 {
         align-items: center;
         gap: 8px;
         padding: 80px 40px 40px;
-        z-index: 9999;
+        z-index: 10000;
         box-sizing: border-box;
+        overflow: hidden; /* prevent overlay from scrolling */
     }
 
     .desktop-nav.active {
@@ -678,6 +704,17 @@ h1, h2, h3 {
     .mobile-menu-btn { display: block; }
     .cta-content { padding: 40px 20px; }
     .section-title { font-size: 32px; }
+
+    /* Compact logo so lang switcher + hamburger fit on narrow screens */
+    .logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .logo svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
 }
 
 .solution-card {
@@ -836,20 +873,8 @@ h1, h2, h3 {
 
     /* Incremento del área táctil en botones clave */
     .mobile-menu-btn { 
-        padding: 15px;
-    }
-    
-    .lang-switcher {
-        gap: 12px;
-        margin-left: auto;
-        margin-right: 10px;
-    }
-
-    .lang-btn {
-        padding: 12px 16px;
-        font-size: 14px;
-        min-width: 48px;
-        min-height: 48px;
+        padding: 10px;
+        flex-shrink: 0;
     }
     
     /* Mejora de legibilidad en textos pequeños */
@@ -859,6 +884,19 @@ h1, h2, h3 {
 
     .pain-section, .solutions-section, .cta-section, .testimonials-section, .extra-section {
         padding: 60px 0;
+    }
+
+    /* Hero actions: centrar y asegurar que no solapen con el botón flotante */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding-bottom: 90px; /* espacio para el botón de WhatsApp */
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -909,10 +947,10 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
     .whatsapp-btn {
-        bottom: 45px; /* Increased further to avoid safe area clipping */
-        right: 20px;
-        width: 60px;
-        height: 60px;
+        bottom: 20px;
+        right: 15px;
+        width: 52px;
+        height: 52px;
         border-width: 2px;
     }
 }
