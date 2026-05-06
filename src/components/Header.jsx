@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Scale, Menu, X } from 'lucide-react';
+import { Zap, Menu, X } from 'lucide-react';
 
 export default function Header({ lang, setLang, t }) {
     const [scrolled, setScrolled] = useState(false);
@@ -36,7 +36,7 @@ export default function Header({ lang, setLang, t }) {
         >
             <div className="container">
                 <a href="#" className="logo">
-                    <Scale className="gold-text" style={{ marginRight: '8px', width: '28px', height: '28px' }} />
+                    <Zap className="gold-text" style={{ marginRight: '8px', width: '28px', height: '28px' }} />
                     <span className="gold-text">OBIS</span> AGENCY
                 </a>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, ShieldAlert, Scale, Users, DollarSign, HelpCircle, Search, Cpu, Workflow, FileText, ShieldCheck, Lock, UserCheck } from 'lucide-react';
+import { CheckCircle, ShieldAlert, Zap, Users, DollarSign, HelpCircle, Search, Cpu, Workflow, FileText, ShieldCheck, Lock, UserCheck, Layers, BarChart } from 'lucide-react';
 
 export default function ExtraSections({ t, onSelectService }) {
     const [activeFaq, setActiveFaq] = useState(null);
@@ -22,26 +22,26 @@ export default function ExtraSections({ t, onSelectService }) {
         { 
             title: 'solution_1_title', 
             cost: 'price_web', 
-            desc: 'solution_1_desc',
-            icon: <Search className="gold-text" size={32} />
-        },
-        { 
-            title: 'solution_4_title', 
-            cost: 'price_consultation', 
-            desc: 'solution_4_desc',
-            icon: <FileText className="gold-text" size={32} />
+            desc: 'price_1_desc',
+            icon: <Layers className="gold-text" size={32} />
         },
         { 
             title: 'solution_2_title', 
             cost: 'price_support', 
-            desc: 'solution_2_desc',
+            desc: 'price_2_desc',
             icon: <Cpu className="gold-text" size={32} />
         },
         { 
             title: 'solution_3_title', 
             cost: 'price_automation', 
-            desc: 'solution_3_desc',
+            desc: 'price_3_desc',
             icon: <Workflow className="gold-text" size={32} />
+        },
+        { 
+            title: 'solution_4_title', 
+            cost: 'price_consultation', 
+            desc: 'price_4_desc',
+            icon: <BarChart className="gold-text" size={32} />
         }
     ];
 
@@ -81,7 +81,7 @@ export default function ExtraSections({ t, onSelectService }) {
                 <div className="container">
                     <h2 className="section-title text-center" dangerouslySetInnerHTML={{ __html: t('pricing_title') }}></h2>
                     <p className="text-center" style={{ color: 'var(--text-muted)', marginBottom: '50px', maxWidth: '700px', margin: '0 auto 50px' }}>
-                        Selecciona los módulos que tu despacho necesita. Ofrecemos soluciones independientes y combinables según tus objetivos.
+                        {t('pricing_desc')}
                     </p>
                     <div className="pricing-grid modular">
                         {pricingTiers.map((tier, idx) => (
