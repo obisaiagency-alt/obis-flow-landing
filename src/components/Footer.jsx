@@ -1,4 +1,4 @@
-import { Scale, Mail } from 'lucide-react';
+import { Zap, Mail } from 'lucide-react';
 
 export default function Footer({ t, openModal }) {
     return (
@@ -6,7 +6,7 @@ export default function Footer({ t, openModal }) {
             <div className="container footer-content">
                 <div className="footer-info">
                     <div className="logo">
-                        <Scale className="gold-text" style={{ marginRight: '8px', width: '28px', height: '28px' }} />
+                        <Zap className="gold-text" style={{ marginRight: '8px', width: '28px', height: '28px' }} />
                         <span className="gold-text">OBIS</span> AGENCY
                     </div>
                     <p>{t('footer_desc')}</p>

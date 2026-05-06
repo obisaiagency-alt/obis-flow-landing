@@ -74,9 +74,9 @@ export default function Contact({ t, selectedService, setSelectedService }) {
                                 >
                                     <option value="" disabled>{t('form_service_placeholder')}</option>
                                     <option value="solution_1_title">{t('solution_1_title')}</option>
-                                    <option value="solution_4_title">{t('solution_4_title')}</option>
                                     <option value="solution_2_title">{t('solution_2_title')}</option>
                                     <option value="solution_3_title">{t('solution_3_title')}</option>
+                                    <option value="solution_4_title">{t('solution_4_title')}</option>
                                 </select>
                             </div>
                             <div className="form-group">

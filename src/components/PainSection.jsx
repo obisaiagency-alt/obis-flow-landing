@@ -16,7 +16,7 @@ export default function PainSection({ t }) {
                         </ul>
                     </div>
                     <div className="pain-image-container">
-                        <img src={painSectionImg} alt="Legal AI Efficiency" className="pain-img" />
+                        <img src={painSectionImg} alt="Business AI Efficiency" className="pain-img" />
                         <div className="stats-card">
                             <span className="gold-text big-number">75%</span>
                             <p>{t('stat_desc')}</p>
